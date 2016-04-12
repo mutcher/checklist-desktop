@@ -1,0 +1,44 @@
+﻿<Page x:Class="desktop.Pages.ListPage"
+      x:ClassModifier="internal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignHeight="533" d:DesignWidth="300" Title="ListPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Add List" Click="AddItem_Click"/>
+            <TextBox Grid.Column="1" x:Name="_addItemTextBox" GotFocus="_addItemTextBox_GotFocus" LostFocus="_addItemTextBox_LostFocus"/>
+        </Grid>
+        <ListBox Grid.Row="1" x:Name="_mainListBox" MouseDoubleClick="_mainListBox_MouseDoubleClick"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Logout" Click="LogoutButton_Click"/>
+            <Button Grid.Column="1" Content="Delete List" Click="DeleteListButton_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource defaultButton}">
+                        <Setter Property="Background" Value="#72FF6B6B"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=_mainListBox}" Value="-1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="Background" Value="#72FF6B6B"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

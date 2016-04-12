@@ -1,0 +1,39 @@
+﻿<Page x:Class="desktop.Pages.LoginPage"
+      x:ClassModifier="internal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignHeight="533" d:DesignWidth="300" Title="LoginPage"
+      FocusManager.FocusedElement="{Binding ElementName=_loginBox}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Margin="30,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Bottom" Content="Login"/>
+            <TextBox Grid.Row="1" x:Name="_loginBox" TabIndex="0"/>                                         
+            <Label Grid.Row="2" HorizontalAlignment="Center" VerticalContentAlignment="Bottom" Content="Password"/>
+            <PasswordBox Grid.Row="3" x:Name="_passwordBox" TabIndex="1" KeyDown="_passwordBox_KeyDown"/>
+            <Button Grid.Row="4" x:Name="_loginButton" Content="Enter" Click="_loginButton_Click" TabIndex="2"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="_exitButton" Content="Exit" Click="_exitButton_Click"/>
+            <Button Grid.Column="1" x:Name="_aboutButton" Content="About" Click="_aboutButton_Click"/>
+        </Grid>
+    </Grid>
+</Page>
